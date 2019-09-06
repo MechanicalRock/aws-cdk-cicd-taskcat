@@ -1,0 +1,18 @@
+# taskcat.yml contains two high-level mappings: global and tests.
+# global mapping defines the global configuration of the project
+global:
+  owner: raj.das@mechanicalrock.io # Project owner's email address
+  qsname: aws-cdk-cicd-taskcat
+  regions: 
+    - ap-southeast-2
+  reporting: true # Set to true if test report with logs is required for each test execution
+# tests mapping defines test scenarios that will be performed by TaskCat
+tests:
+  test-scenario1:
+    parameter_input: input.json
+    template_file: master.template
+  test-scenario2:
+      parameter_input: input2.json
+      template_file: master.template
+      regions: # Override the global regions mapping if a a resource is supported in a specific region
+      - us-east-1
